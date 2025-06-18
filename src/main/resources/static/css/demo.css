@@ -1,0 +1,92 @@
+ body {
+     background-color: #d4cad0;
+ }
+
+ .retro-font {
+     font-family: Consolas, Monaco,'Lucida Console', monospace;
+     font-weight: bold;
+     text-transform: uppercase;
+     letter-spacing: 3px;
+ }
+
+ nav {
+     background: #7e9a6d;
+     font-family: Consolas, Monaco, 'Lucida Console', monospace;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+ }
+
+
+ form {
+     font-family: Consolas, Monaco, 'Lucida Console', monospace;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+ }
+
+ input[type=submit] {
+     font-family: Consolas, Monaco, 'Lucida Console', monospace;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     border-radius: 10px;
+ }
+
+ input[type=button] {
+     font-family: Consolas, Monaco, 'Lucida Console', monospace;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     border-radius: 10px;
+ }
+
+ input[type=text] {
+     font-family: Consolas, Monaco,'Lucida Console', monospace;
+     text-transform: uppercase;
+     letter-spacing: 3px;
+     background: #b5b8ac;
+     border: none;
+     border-bottom: 2px #556a4c;
+ }
+
+/*logo styling*/
+.logo {
+    max-width: 400px;
+    height: auto;
+    display: block;
+}
+
+/*styling for bike store name*/
+.letter-bounce span {
+    font-family: Consolas, Monaco,'Lucida Console', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: inline-block;
+    animation: letterBounce 1.5s ease-in-out infinite;
+}
+
+/*animation for each letter in Derek's Bike Depot*/
+.letter-bounce span:nth-child(1) { animation-delay: 0s; }
+.letter-bounce span:nth-child(2) { animation-delay: 0.1s; }
+.letter-bounce span:nth-child(3) { animation-delay: 0.2s; }
+.letter-bounce span:nth-child(4) { animation-delay: 0.3s; }
+.letter-bounce span:nth-child(5) { animation-delay: 0.4s; }
+.letter-bounce span:nth-child(6) { animation-delay: 0.5s; }
+.letter-bounce span:nth-child(7) { animation-delay: 0.6s; }
+.letter-bounce span:nth-child(8) { animation-delay: 0.7s; }
+.letter-bounce span:nth-child(9) { animation-delay: 0.8s; }
+.letter-bounce span:nth-child(10) { animation-delay: 0.9s; }
+.letter-bounce span:nth-child(11) { animation-delay: 1.0s; }
+.letter-bounce span:nth-child(12) { animation-delay: 1.1s; }
+.letter-bounce span:nth-child(13) { animation-delay: 1.2s; }
+.letter-bounce span:nth-child(14) { animation-delay: 1.3s; }
+.letter-bounce span:nth-child(15) { animation-delay: 1.4s; }
+.letter-bounce span:nth-child(16) { animation-delay: 1.5s; }
+.letter-bounce span:nth-child(17) { animation-delay: 1.6s; }
+.letter-bounce span:nth-child(18) { animation-delay: 1.7s; }
+ .letter-bounce span:nth-child(19) { animation-delay: 1.8s; }
+
+/*how high letters will bounce*/
+@keyframes letterBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
