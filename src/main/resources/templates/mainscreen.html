@@ -12,13 +12,13 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/demo.css">
 
-    <title>My Greenhouse</title>
+    <title>My Garden Kits</title>
 </head>
 <body>
-<!-- Navigation -->
+<!-- navigation -->
 <nav class="navbar navbar-expand-lg navbar-light mb-4">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">Derek's Greenhouse</a>
+        <a class="navbar-brand" href="/">Derek's Garden Kits</a>
         <div class="navbar-nav">
             <a class="nav-link" href="/">Home</a>
             <a class="nav-link active" href="/about">About</a>
@@ -29,10 +29,11 @@
     <img src="/dereks_greenhouse.png" alt="Derek in his greenhouse" class="logo">
     <h1 class="letter-bounce">
         <span>D</span><span>e</span><span>r</span><span>e</span><span>k</span><span>'</span><span>s</span>
-        <span> </span><span>G</span><span>r</span><span>e</span><span>e</span><span>n</span><span>h</span><span>o</span><span>u</span><span>s</span><span>e</span>
+        <span> </span><span>G</span><span>a</span><span>r</span><span>d</span><span>e</span><span>n</span>
+        <span> </span><span>K</span><span>i</span><span>t</span><span>s</span>
     </h1>
     <hr>
-    <h2 class="retro-font">Parts</h2>
+    <h2 class="retro-font">Garden Items and Supplies</h2>
     <form th:action="@{/mainscreen}">
         Filter: <input type="text" name="partkeyword" id="partkeyword" size="50" th:value="${partkeyword}" required />
         &nbsp;
@@ -41,12 +42,12 @@
         <input type="button" value="Clear" id="btnClearPart" onclick="clearSearch()" />
     </form>
     <br><br>
-    <a th:href="@{/showFormAddInPart}" class="btn btn-primary btn-sm mb-3">Add Inhouse Part</a>
-    <a th:href="@{/showFormAddOutPart}" class="btn btn-primary btn-sm mb-3">Add Outsourced Part</a>
+    <a th:href="@{/showFormAddInPart}" class="btn btn-primary btn-sm mb-3">Add Handcrafted Item</a>
+    <a th:href="@{/showFormAddOutPart}" class="btn btn-primary btn-sm mb-3">Add Supplier Item</a>
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
         <tr>
-            <th>Name</th>
+            <th>Item Name</th>
             <th>Price</th>
             <th>Inventory</th>
             <th>Action</th>
@@ -59,12 +60,12 @@
             <td th:text="${tempPart.inv}">1</td>
             <td><a th:href="@{/showPartFormForUpdate(partID=${tempPart.id})}" class="btn btn-primary btn-sm mb-3">Update</a>
                 <a th:href="@{/deletepart(partID=${tempPart.id})}" class="btn btn-primary btn-sm mb-3"
-                   onclick="if(!(confirm('Are you sure you want to delete this part?')))return false">Delete</a>
+                   onclick="if(!(confirm('Are you sure you want to delete this item?')))return false">Delete</a>
             </td>
         </tr>
         </tbody>
     </table>
-    <h2 class="retro-font">Products</h2>
+    <h2 class="retro-font">Garden Kits</h2>
     <form th:action="@{/mainscreen}">
         Filter: <input type="text" name="productkeyword" id="productkeyword" size="50" th:value="${productkeyword}" required />
         &nbsp;
@@ -78,11 +79,11 @@
         }
     </script>
     <br><br>
-    <a th:href="@{/showFormAddProduct}" class="btn btn-primary btn-sm mb-3">Add Product</a>
+    <a th:href="@{/showFormAddProduct}" class="btn btn-primary btn-sm mb-3">Add Garden Kit</a>
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
         <tr>
-            <th>Name</th>
+            <th>Kit Name</th>
             <th>Price</th>
             <th>Inventory</th>
             <th>Action</th>
