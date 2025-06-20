@@ -150,5 +150,25 @@ H.  Add validation for between or at the maximum and minimum fields. The validat
             ).addConstraintViolation();
             isValid = false;
         }
-    
+
+I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
+
+    add 2 unit tests to test getter and setter functions to PartTest.java (line 160-176)
+    @Test
+    void canSetMinInv () {
+    int minInv=10;
+    partIn.setMinInv(minInv);
+    assertEquals(minInv,partIn.getMinInv());
+    partOut.setMinInv(minInv);
+    assertEquals(minInv,partOut.getMinInv());
+    }
+
+    @Test
+    void canGetMaxInv () {
+        int maxInv=100;
+        partIn.setMaxInv(maxInv);
+        assertEquals(maxInv,partIn.getMaxInv());
+        partOut.setMaxInv(maxInv);
+        assertEquals(maxInv,partOut.getMaxInv());
+    }
 
