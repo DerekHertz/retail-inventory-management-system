@@ -27,4 +27,38 @@ line 19-27 in mainscreen.html
 E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five 
 products in your sample inventory and should not overwrite existing data in the database.
 
-add 5 parts and 5 products into BootStrapData if product and part list are empty (lin 54-131)
+add 5 parts and 5 products into BootStrapData if product and part list are empty (line 54-131)
+
+F.  Add a “Buy Now” button to your product list. Your “Buy Now” button must meet each of the following parameters:
+•  The “Buy Now” button must be next to the buttons that update and delete products.
+• The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.
+•  Display a message that indicates the success or failure of a purchase.
+
+    added buyKit button (line 97) <td><a th:href="@{/buyKit(productID=${tempProduct.id})}" class="btn btn-primary btn-sm mb-3">Buy</a>
+    added buyKit to AddKitControll (line 177-198) - handles decrementing inv if inv is not 0, displats success or failure 
+    message based on current inv
+        @GetMapping("/buyKit")
+    public String buyKit(@RequestParam("productID") int theId, Model theModel) {
+        // initialize productService through spring context
+        ProductService productService = context.getBean(ProductServiceImpl.class);
+        // create product object called kit
+        Product kit=productService.findById(theId);
+        // create variable to store value of inv
+        int inv =  kit.getInv();
+        // check if inv is 0
+        if (inv == 0) {
+            // return failed.html page
+            return "failed";
+        } else {
+            // reduce inv by one
+            inv -= 1;
+            // set new value of kit inv
+            kit.setInv(inv);
+            // save kit object
+            productService.save(kit);
+            // return success.html page
+            return "success";
+        }
+
+    
+

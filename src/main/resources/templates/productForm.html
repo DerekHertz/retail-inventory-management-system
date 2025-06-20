@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/demo.css">
+
     <title>Part Form</title>
 
 <!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
 </head>
-<body>
+<body class="retro-font">
 <h1>Product Detail</h1>
 <form action="#" th:action="@{/showFormAddProduct}" th:object="${product}" method="POST"}>
     <!-- Add hidden form field to handle update -->

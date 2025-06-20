@@ -24,7 +24,7 @@ import java.util.List;
  *
  */
 @Controller
-public class AddProductController {
+public class AddKitController {
     @Autowired
     private ApplicationContext context;
     private PartService partService;
@@ -127,7 +127,7 @@ public class AddProductController {
         return "confirmationdeleteproduct";
     }
 
-    public AddProductController(PartService partService) {
+    public AddKitController(PartService partService) {
         this.partService = partService;
     }
 // make the add and remove buttons work
@@ -172,5 +172,30 @@ public class AddProductController {
         }
         theModel.addAttribute("availparts",availParts);
         return "productForm";
+    }
+
+    @GetMapping("/buyKit")
+    public String buyKit(@RequestParam("productID") int theId, Model theModel) {
+        // initialize productService through spring context
+        ProductService productService = context.getBean(ProductServiceImpl.class);
+        // create product object called kit
+        Product kit=productService.findById(theId);
+        // create variable to store value of inv
+        int inv =  kit.getInv();
+        // check if inv is 0
+        if (inv == 0) {
+            // return failed.html page
+            return "failed";
+        } else {
+            // reduce inv by one
+            inv -= 1;
+            // set new value of kit inv
+            kit.setInv(inv);
+            // save kit object
+            productService.save(kit);
+            // return success.html page
+            return "success";
+        }
+
     }
 }

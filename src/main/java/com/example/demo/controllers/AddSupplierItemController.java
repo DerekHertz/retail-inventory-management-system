@@ -22,7 +22,7 @@ import javax.validation.Valid;
  *
  */
 @Controller
-public class AddOutsourcedPartController {
+public class AddSupplierItemController {
     @Autowired
     private ApplicationContext context;
 

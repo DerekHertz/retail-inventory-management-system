@@ -21,7 +21,7 @@ import javax.validation.Valid;
  *
  */
 @Controller
-public class AddInhousePartController{
+public class AddHandmandItemController {
     @Autowired
     private ApplicationContext context;
 
