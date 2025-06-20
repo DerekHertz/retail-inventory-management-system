@@ -23,3 +23,8 @@ line 19-27 in mainscreen.html
         </div>
     </div>
 </nav>
+
+E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five 
+products in your sample inventory and should not overwrite existing data in the database.
+
+add 5 parts and 5 products into BootStrapData if product and part list are empty (lin 54-131)

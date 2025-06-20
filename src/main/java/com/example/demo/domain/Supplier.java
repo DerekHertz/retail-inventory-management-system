@@ -11,10 +11,10 @@ import javax.persistence.Entity;
  */
 @Entity
 @DiscriminatorValue("2")
-public class OutsourcedPart extends Part{
+public class Supplier extends Part{
 String companyName;
 
-    public OutsourcedPart() {
+    public Supplier() {
     }
 
     public String getCompanyName() {

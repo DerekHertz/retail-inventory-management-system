@@ -1,9 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.InhousePart;
-import com.example.demo.domain.OutsourcedPart;
-import com.example.demo.repositories.InhousePartRepository;
-import com.example.demo.repositories.OutsourcedPartRepository;
+import com.example.demo.domain.HandCrafted;
+import com.example.demo.repositories.HandCraftedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,24 +16,24 @@ import java.util.Optional;
  */
 @Service
 public class InhousePartServiceImpl implements InhousePartService {
-    private InhousePartRepository partRepository;
+    private HandCraftedRepository partRepository;
 
     @Autowired
-    public InhousePartServiceImpl(InhousePartRepository partRepository) {
+    public InhousePartServiceImpl(HandCraftedRepository partRepository) {
         this.partRepository = partRepository;
     }
 
     @Override
-    public List<InhousePart> findAll() {
-        return (List<InhousePart>) partRepository.findAll();
+    public List<HandCrafted> findAll() {
+        return (List<HandCrafted>) partRepository.findAll();
     }
 
     @Override
-    public InhousePart findById(int theId) {
+    public HandCrafted findById(int theId) {
         Long theIdl=(long)theId;
-        Optional<InhousePart> result = partRepository.findById(theIdl);
+        Optional<HandCrafted> result = partRepository.findById(theIdl);
 
-        InhousePart thePart = null;
+        HandCrafted thePart = null;
 
         if (result.isPresent()) {
             thePart = result.get();
@@ -50,7 +48,7 @@ public class InhousePartServiceImpl implements InhousePartService {
     }
 
     @Override
-    public void save(InhousePart thePart) {
+    public void save(HandCrafted thePart) {
         partRepository.save(thePart);
 
     }

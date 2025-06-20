@@ -11,10 +11,10 @@ import javax.persistence.Entity;
  */
 @Entity
 @DiscriminatorValue("1")
-public class InhousePart extends Part{
+public class HandCrafted extends Part{
     int partId;
 
-    public InhousePart() {
+    public HandCrafted() {
     }
 
     public int getPartId() {

@@ -1,6 +1,6 @@
 package com.example.demo.repositories;
 
-import com.example.demo.domain.InhousePart;
+import com.example.demo.domain.HandCrafted;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -9,5 +9,5 @@ import org.springframework.data.repository.CrudRepository;
  *
  *
  */
-public interface InhousePartRepository extends CrudRepository<InhousePart,Long> {
+public interface HandCraftedRepository extends CrudRepository<HandCrafted,Long> {
 }

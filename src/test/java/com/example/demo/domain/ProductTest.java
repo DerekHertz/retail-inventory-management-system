@@ -83,8 +83,8 @@ class ProductTest {
 
     @Test
     void getParts() {
-        Part part1 = new OutsourcedPart();
-        Part part2 = new InhousePart();
+        Part part1 = new Supplier();
+        Part part2 = new HandCrafted();
         Set<Part> myParts= new HashSet<>();
         myParts.add(part1);
         myParts.add(part2);
@@ -94,8 +94,8 @@ class ProductTest {
 
     @Test
     void setParts() {
-        Part part1 = new OutsourcedPart();
-        Part part2 = new InhousePart();
+        Part part1 = new Supplier();
+        Part part2 = new HandCrafted();
         Set<Part> myParts= new HashSet<>();
         myParts.add(part1);
         myParts.add(part2);

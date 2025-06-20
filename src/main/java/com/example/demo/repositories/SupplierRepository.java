@@ -1,6 +1,6 @@
 package com.example.demo.repositories;
 
-import com.example.demo.domain.OutsourcedPart;
+import com.example.demo.domain.Supplier;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -9,5 +9,5 @@ import org.springframework.data.repository.CrudRepository;
  *
  *
  */
-public interface OutsourcedPartRepository extends CrudRepository<OutsourcedPart,Long> {
+public interface SupplierRepository extends CrudRepository<Supplier,Long> {
 }

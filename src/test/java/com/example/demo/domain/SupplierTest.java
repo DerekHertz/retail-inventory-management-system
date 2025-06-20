@@ -16,13 +16,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Created with IntelliJ IDEA
  * To change this template use File | Settings | File Templates.
  */
-class OutsourcedPartTest {
+class SupplierTest {
 
-    OutsourcedPart op;
+    Supplier op;
 
     @BeforeEach
     void setUp() {
-        op= new OutsourcedPart();
+        op= new Supplier();
     }
 
     @Test

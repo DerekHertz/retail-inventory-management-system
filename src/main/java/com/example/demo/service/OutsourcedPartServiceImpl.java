@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.OutsourcedPart;
-import com.example.demo.repositories.OutsourcedPartRepository;
+import com.example.demo.domain.Supplier;
+import com.example.demo.repositories.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,24 +16,24 @@ import java.util.Optional;
  */
 @Service
 public class OutsourcedPartServiceImpl implements OutsourcedPartService{
-    private OutsourcedPartRepository partRepository;
+    private SupplierRepository partRepository;
 
     @Autowired
-    public OutsourcedPartServiceImpl(OutsourcedPartRepository partRepository) {
+    public OutsourcedPartServiceImpl(SupplierRepository partRepository) {
         this.partRepository = partRepository;
     }
 
     @Override
-    public List<OutsourcedPart> findAll() {
-        return (List<OutsourcedPart>) partRepository.findAll();
+    public List<Supplier> findAll() {
+        return (List<Supplier>) partRepository.findAll();
     }
 
     @Override
-    public OutsourcedPart findById(int theId) {
+    public Supplier findById(int theId) {
         Long theIdl=(long)theId;
-        Optional<OutsourcedPart> result = partRepository.findById(theIdl);
+        Optional<Supplier> result = partRepository.findById(theIdl);
 
-        OutsourcedPart thePart = null;
+        Supplier thePart = null;
 
         if (result.isPresent()) {
             thePart = result.get();
@@ -48,7 +48,7 @@ public class OutsourcedPartServiceImpl implements OutsourcedPartService{
     }
 
     @Override
-    public void save(OutsourcedPart thePart) {
+    public void save(Supplier thePart) {
         partRepository.save(thePart);
 
     }

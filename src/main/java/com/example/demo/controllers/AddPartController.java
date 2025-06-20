@@ -1,15 +1,13 @@
 package com.example.demo.controllers;
 
-import com.example.demo.domain.InhousePart;
-import com.example.demo.domain.OutsourcedPart;
+import com.example.demo.domain.HandCrafted;
+import com.example.demo.domain.Supplier;
 import com.example.demo.domain.Part;
-import com.example.demo.repositories.PartRepository;
 import com.example.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -34,19 +32,19 @@ public class AddPartController {
         InhousePartService inhouserepo=context.getBean(InhousePartServiceImpl.class);
 
         boolean inhouse=true;
-        List<OutsourcedPart> outsourcedParts=outsourcedrepo.findAll();
-        for(OutsourcedPart outsourcedPart:outsourcedParts) {
-            if(outsourcedPart.getId()==theId)inhouse=false;
+        List<Supplier> suppliers =outsourcedrepo.findAll();
+        for(Supplier supplier : suppliers) {
+            if(supplier.getId()==theId)inhouse=false;
         }
         String formtype;
         if(inhouse){
-            InhousePart inhousePart=inhouserepo.findById(theId);
-            theModel.addAttribute("inhousepart",inhousePart);
+            HandCrafted handCrafted =inhouserepo.findById(theId);
+            theModel.addAttribute("inhousepart", handCrafted);
             formtype="InhousePartForm";
         }
         else{
-            OutsourcedPart outsourcedPart=outsourcedrepo.findById(theId);
-            theModel.addAttribute("outsourcedpart",outsourcedPart);
+            Supplier supplier =outsourcedrepo.findById(theId);
+            theModel.addAttribute("outsourcedpart", supplier);
             formtype="OutsourcedPartForm";
         }
         return formtype;

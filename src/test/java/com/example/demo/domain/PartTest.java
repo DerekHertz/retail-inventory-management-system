@@ -24,8 +24,8 @@ class PartTest {
     Part partOut;
     @BeforeEach
     void setUp() {
-        partIn=new InhousePart();
-        partOut=new OutsourcedPart();
+        partIn=new HandCrafted();
+        partOut=new Supplier();
     }
     @Test
     void getId() {
@@ -140,11 +140,11 @@ class PartTest {
     @Test
     void testEquals() {
         partIn.setId(1l);
-        Part newPartIn=new InhousePart();
+        Part newPartIn=new HandCrafted();
         newPartIn.setId(1l);
         assertEquals(partIn,newPartIn);
         partOut.setId(1l);
-        Part newPartOut=new OutsourcedPart();
+        Part newPartOut=new Supplier();
         newPartOut.setId(1l);
         assertEquals(partOut,newPartOut);
 

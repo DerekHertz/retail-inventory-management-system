@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.OutsourcedPart;
-import com.example.demo.domain.Part;
+import com.example.demo.domain.Supplier;
 
 import java.util.List;
 
@@ -12,8 +11,8 @@ import java.util.List;
  *
  */
 public interface OutsourcedPartService {
-        public List<OutsourcedPart> findAll();
-        public OutsourcedPart findById(int theId);
-        public void save (OutsourcedPart thePart);
+        public List<Supplier> findAll();
+        public Supplier findById(int theId);
+        public void save (Supplier thePart);
         public void deleteById(int theId);
 }

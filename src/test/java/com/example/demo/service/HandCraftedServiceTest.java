@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.InhousePart;
+import com.example.demo.domain.HandCrafted;
 import com.example.demo.repositories.HandCraftedRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
  * Created with IntelliJ IDEA
  * To change this template use File | Settings | File Templates.
  */
-class InhousePartServiceTest {
+class HandCraftedServiceTest {
     HandCraftedRepository handCraftedRepository;
     InhousePartService inhousePartService;
     @BeforeEach
@@ -34,11 +34,11 @@ class InhousePartServiceTest {
 
     @Test
     void findAll() {
-        InhousePart part=new InhousePart();
+        HandCrafted part=new HandCrafted();
         List partData=new ArrayList();
         partData.add(part);
         when(handCraftedRepository.findAll()).thenReturn(partData);
-        List<InhousePart> parts=inhousePartService.findAll();
+        List<HandCrafted> parts=inhousePartService.findAll();
         assertEquals(partData.size(),1);
     }
 }

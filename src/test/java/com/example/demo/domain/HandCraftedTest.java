@@ -16,11 +16,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Created with IntelliJ IDEA
  * To change this template use File | Settings | File Templates.
  */
-class InhousePartTest {
-    InhousePart ip;
+class HandCraftedTest {
+    HandCrafted ip;
     @BeforeEach
     void setUp() {
-        ip= new InhousePart();
+        ip= new HandCrafted();
     }
 
     @Test

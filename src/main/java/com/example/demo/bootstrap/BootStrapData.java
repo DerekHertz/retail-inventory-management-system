@@ -1,20 +1,15 @@
 package com.example.demo.bootstrap;
 
-import com.example.demo.domain.OutsourcedPart;
-import com.example.demo.domain.Part;
+import com.example.demo.domain.HandCrafted;
 import com.example.demo.domain.Product;
-import com.example.demo.repositories.OutsourcedPartRepository;
+import com.example.demo.domain.Supplier;
+import com.example.demo.repositories.SupplierRepository;
 import com.example.demo.repositories.PartRepository;
 import com.example.demo.repositories.ProductRepository;
-import com.example.demo.service.OutsourcedPartService;
-import com.example.demo.service.OutsourcedPartServiceImpl;
-import com.example.demo.service.ProductService;
-import com.example.demo.service.ProductServiceImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  *
@@ -28,12 +23,12 @@ public class BootStrapData implements CommandLineRunner {
     private final PartRepository partRepository;
     private final ProductRepository productRepository;
 
-    private final OutsourcedPartRepository outsourcedPartRepository;
+    private final SupplierRepository supplierRepository;
 
-    public BootStrapData(PartRepository partRepository, ProductRepository productRepository, OutsourcedPartRepository outsourcedPartRepository) {
+    public BootStrapData(PartRepository partRepository, ProductRepository productRepository, SupplierRepository supplierRepository) {
         this.partRepository = partRepository;
         this.productRepository = productRepository;
-        this.outsourcedPartRepository=outsourcedPartRepository;
+        this.supplierRepository = supplierRepository;
     }
 
     @Override
@@ -55,8 +50,88 @@ public class BootStrapData implements CommandLineRunner {
 
         System.out.println(thePart.getCompanyName());
         */
-        List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
+        // check if part or product list is empty to set sample inv.
+        if (partRepository.count() == 0 && productRepository.count() == 0) {
+            // default parts for garden kits
+            HandCrafted ceramicPot = new HandCrafted();
+            ceramicPot.setName("5 Gallon Ceramic Pot");
+            ceramicPot.setPrice(9.99);
+            ceramicPot.setInv(40);
+            ceramicPot.setPartId(1);
+            partRepository.save(ceramicPot);
+
+            HandCrafted cedarPanels = new HandCrafted();
+            cedarPanels.setName("Cedar Planter Box Panels");
+            cedarPanels.setPrice(5.99);
+            cedarPanels.setInv(500);
+            cedarPanels.setPartId(2);
+            partRepository.save(cedarPanels);
+
+            Supplier shovel = new Supplier();
+            shovel.setName("Shovel");
+            shovel.setPrice(10.99);
+            shovel.setInv(100);
+            shovel.setCompanyName("Shovel Co.");
+            partRepository.save(shovel);
+
+            Supplier flowerSeeds = new Supplier();
+            flowerSeeds.setName("Flower Seeds");
+            flowerSeeds.setPrice(3.99);
+            flowerSeeds.setInv(100);
+            flowerSeeds.setCompanyName("Seeds Co..");
+            partRepository.save(flowerSeeds);
+
+            Supplier vegetableSeeds = new Supplier();
+            vegetableSeeds.setName("Vegetable Seeds");
+            vegetableSeeds.setPrice(3.99);
+            vegetableSeeds.setInv(100);
+            vegetableSeeds.setCompanyName("Seeds Co.");
+            partRepository.save(vegetableSeeds);
+
+            Supplier planterHardware = new Supplier();
+            planterHardware.setName("Planter Hardware");
+            planterHardware.setPrice(5.99);
+            planterHardware.setInv(200);
+            planterHardware.setCompanyName("Hardware Co.");
+            partRepository.save(planterHardware);
+
+            // 5 default kits
+            Product seedKit = new Product();
+            seedKit.setName("Seed Kit");
+            seedKit.setPrice(6.99);
+            seedKit.setInv(30);
+            productRepository.save(seedKit);
+
+            Product flowerKit = new Product();
+            flowerKit.setName("Flower Kit");
+            flowerKit.setPrice(15.99);
+            flowerKit.setInv(10);
+            productRepository.save(flowerKit);
+
+            Product vegetableKit = new Product();
+            vegetableKit.setName("Vegetable Kit");
+            vegetableKit.setPrice(15.99);
+            vegetableKit.setInv(10);
+            productRepository.save(vegetableKit);
+
+            Product planterKit = new Product();
+            planterKit.setName("Planter Kit");
+            planterKit.setPrice(60.99);
+            planterKit.setInv(15);
+            productRepository.save(planterKit);
+
+            Product potKit = new Product();
+            potKit.setName("Garden Kit");
+            potKit.setPrice(99.99);
+            potKit.setInv(10);
+            productRepository.save(potKit);
+
+            System.out.println("🌱 Sample garden inventory has been planted!");
+
+        }
+
+        List<Supplier> suppliers =(List<Supplier>) supplierRepository.findAll();
+        for(Supplier part: suppliers){
             System.out.println(part.getName()+" "+part.getCompanyName());
         }
 
