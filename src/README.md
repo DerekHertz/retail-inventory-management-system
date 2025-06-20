@@ -115,7 +115,40 @@ G.  Modify the parts to track maximum and minimum inventory by doing the followi
     add InventoryValidator and ValidInventory interface to enforce min and max inventory by part, add @ValidInventory (line 20)
     into Part.java
 
+H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
+•  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
     
+    add error message when adding or updating a part will cause partInv < minInv in InventoryValidator.java (line 43-50)
+            } else if (partInv < minInv) {
+            constraintValidatorContext.buildConstraintViolationWithTemplate(
+                    "🌱 Your inventory is wilting! Current stock (" + partInv +
+                            ") is below the minimum growing level (" + minInv + "). " +
+                            "Time to water your stock!"
+            ).addConstraintViolation();
+            isValid = false;
+            }
+•  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
+    
+    add error message for low inventory when adding or updating products causes p.Inv < p.minInv
+    if (p.getInv()<(product.getInv()-myProduct.getInv()) || p.getInv() - 1 < p.getMinInv()) {
+        constraintValidatorContext.buildConstraintViolationWithTemplate(
+                "🌱 This update will cause your inventory to wilt! Current stock of " + p + " (" + p.getInv() +
+                        ") is at the minimum growing level (" + p.getMinInv() + "). " +
+                        "Time to water your stock!"
+        ).addConstraintViolation();
+        return false;
+    };
 
+•  Display error messages when adding and updating parts if the inventory is greater than the maximum.
+
+    add error message when adding or updating a part will cause partInv > maxInv in InventoryValidator.java (line 36-42)
+        if (partInv > maxInv) {
+            constraintValidatorContext.buildConstraintViolationWithTemplate(
+                    "🌸 Your greenhouse is overflowing! Current stock (" + partInv +
+                            ") exceeds maximum capacity (" + maxInv + "). " +
+                            "Your garden bed is full to capacity!"
+            ).addConstraintViolation();
+            isValid = false;
+        }
     
 

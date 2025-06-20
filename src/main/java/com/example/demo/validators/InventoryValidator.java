@@ -30,15 +30,24 @@ public class InventoryValidator implements ConstraintValidator<ValidInventory, P
         int partInv = item.getInv();
         int minInv = item.getMinInv();
         int maxInv = item.getMaxInv();
-        // return true if partInv is greater than or equal to minInv and less than or equal to maxInv else return false
-        if (partInv > maxInv) {
-            constraintValidatorContext.buildConstraintViolationWithTemplate("Solution: Reduce inventory, current value is greater than max inventory").addConstraintViolation();
-            return false;
-        } else if (partInv < minInv) {
-            constraintValidatorContext.buildConstraintViolationWithTemplate("Solution: Increase inventory, current value is less than min inventory").addConstraintViolation();
-            return false;
-        }
 
-        return true;
+        boolean isValid = true;
+        // check if inv is greater than maxInv or less than minInv
+        if (partInv > maxInv) {
+            constraintValidatorContext.buildConstraintViolationWithTemplate(
+                    "🌸 Your greenhouse is overflowing! Current stock (" + partInv +
+                            ") exceeds maximum capacity (" + maxInv + "). " +
+                            "Your garden bed is full to capacity!"
+            ).addConstraintViolation();
+            isValid = false;
+        } else if (partInv < minInv) {
+            constraintValidatorContext.buildConstraintViolationWithTemplate(
+                    "🌱 Your inventory is wilting! Current stock (" + partInv +
+                            ") is below the minimum growing level (" + minInv + "). " +
+                            "Time to water your stock!"
+            ).addConstraintViolation();
+            isValid = false;
+        }
+        return isValid;
     }
 }
