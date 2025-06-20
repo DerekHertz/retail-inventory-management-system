@@ -58,6 +58,8 @@ public class BootStrapData implements CommandLineRunner {
             ceramicPot.setPrice(9.99);
             ceramicPot.setInv(40);
             ceramicPot.setPartId(1);
+            ceramicPot.setMinInv(10);
+            ceramicPot.setMaxInv(100);
             partRepository.save(ceramicPot);
 
             HandCrafted cedarPanels = new HandCrafted();
@@ -65,12 +67,16 @@ public class BootStrapData implements CommandLineRunner {
             cedarPanels.setPrice(5.99);
             cedarPanels.setInv(500);
             cedarPanels.setPartId(2);
+            cedarPanels.setMinInv(100);
+            cedarPanels.setMaxInv(1000);
             partRepository.save(cedarPanels);
 
             Supplier shovel = new Supplier();
             shovel.setName("Shovel");
             shovel.setPrice(10.99);
             shovel.setInv(100);
+            shovel.setMinInv(10);
+            shovel.setMaxInv(200);
             shovel.setCompanyName("Shovel Co.");
             partRepository.save(shovel);
 
@@ -78,6 +84,8 @@ public class BootStrapData implements CommandLineRunner {
             flowerSeeds.setName("Flower Seeds");
             flowerSeeds.setPrice(3.99);
             flowerSeeds.setInv(100);
+            flowerSeeds.setMinInv(50);
+            flowerSeeds.setMaxInv(500);
             flowerSeeds.setCompanyName("Seeds Co..");
             partRepository.save(flowerSeeds);
 
@@ -85,6 +93,8 @@ public class BootStrapData implements CommandLineRunner {
             vegetableSeeds.setName("Vegetable Seeds");
             vegetableSeeds.setPrice(3.99);
             vegetableSeeds.setInv(100);
+            vegetableSeeds.setMinInv(50);
+            vegetableSeeds.setMaxInv(500);
             vegetableSeeds.setCompanyName("Seeds Co.");
             partRepository.save(vegetableSeeds);
 
@@ -92,6 +102,8 @@ public class BootStrapData implements CommandLineRunner {
             planterHardware.setName("Planter Hardware");
             planterHardware.setPrice(5.99);
             planterHardware.setInv(200);
+            planterHardware.setMinInv(100);
+            planterHardware.setMaxInv(1000);
             planterHardware.setCompanyName("Hardware Co.");
             partRepository.save(planterHardware);
 
