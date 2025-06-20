@@ -172,3 +172,7 @@ I.  Add at least two unit tests for the maximum and minimum fields to the PartTe
         assertEquals(maxInv,partOut.getMaxInv());
     }
 
+J.  Remove the class files for any unused validators in order to clean your code.
+
+    removed unused DeletePartValidator.java
+
