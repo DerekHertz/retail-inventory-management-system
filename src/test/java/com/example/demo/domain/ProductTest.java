@@ -8,17 +8,6 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Project: demo
- * Package: com.example.demo.domain
- * <p>
- * User: carolyn.sher
- * Date: 4/28/2022
- * Time: 4:01 PM
- * <p>
- * Created with IntelliJ IDEA
- * To change this template use File | Settings | File Templates.
- */
 class ProductTest {
     Product product;
     @BeforeEach
